@@ -24,7 +24,7 @@ int base64_decode_value(signed char value_in)
 	static const char decoding_size = sizeof(decoding);
 	if (value_in < 43) return -1;
 	value_in -= 43;
-	if (value_in > decoding_size) return -1;
+	if (value_in >= decoding_size) return -1;
 	return decoding[(int)value_in];
 }
 
