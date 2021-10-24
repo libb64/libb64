@@ -4,7 +4,7 @@ all_src:
 	$(MAKE) -C src
 all_base64: all_src
 	$(MAKE) -C base64
-all_examples:
+all_examples: all_src
 	$(MAKE) -C examples
 	
 clean: clean_src clean_base64 clean_include clean_examples
