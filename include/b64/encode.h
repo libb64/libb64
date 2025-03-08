@@ -8,6 +8,10 @@ For details, see http://sourceforge.net/projects/libb64
 #ifndef BASE64_ENCODE_H
 #define BASE64_ENCODE_H
 
+#ifndef BUFFERSIZE
+#define BUFFERSIZE 16777216
+#endif
+
 #include <iostream>
 
 namespace base64
