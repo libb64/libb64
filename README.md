@@ -113,6 +113,6 @@ As can be seen from this example, a coroutine depends on a state variable, which
 
 The obvious problem with any such routine is the static keyword. Any static variables in a function spell doom for multithreaded applications. Also, in situations where this coroutine is used by more than one other coroutines, the consistency is disturbed.
 
-What is needed is a structure for storing these variabled, which is passed to the routine separately. This obviously breaks the modularity of the function, since now the caller has to worry about and care for the internal state of the routine (the callee). This allows for a fast, multithreading-enabled implementation, which may (obviously) be wrapped in a C++ object for ease of use.
+What is needed is a structure for storing these variables, which is passed to the routine separately. This obviously breaks the modularity of the function, since now the caller has to worry about and care for the internal state of the routine (the callee). This allows for a fast, multithreading-enabled implementation, which may (obviously) be wrapped in a C++ object for ease of use.
 
 The base64 encoding and decoding functionality in this package is implemented in exactly this way, providing both a high-speed high-maintenance C interface, and a wrapped C++ which is low-maintenance and only slightly less performant.
