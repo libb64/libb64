@@ -12,10 +12,8 @@ For details, see http://sourceforge.net/projects/libb64
 
 namespace base64
 {
-	extern "C"
-	{
-		#include "cdecode.h"
-	}
+
+#include "cdecode.h"
 
 	struct decoder
 	{
