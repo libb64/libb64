@@ -104,6 +104,7 @@ size_t base64_encode_block(const void* plaintext_in, const size_t length_in, cha
 			result = (fragment & 0x0fc) >> 2;
 			*codechar++ = base64_encode_value(result);
 			result = (fragment & 0x003) << 4;
+			/* fall through */
 	case step_B:
 			if (plainchar == plaintextend)
 			{
@@ -118,6 +119,7 @@ size_t base64_encode_block(const void* plaintext_in, const size_t length_in, cha
 			result |= (fragment & 0x0f0) >> 4;
 			*codechar++ = base64_encode_value(result);
 			result = (fragment & 0x00f) << 2;
+			/* fall through */
 	case step_C:
 			if (plainchar == plaintextend)
 			{
