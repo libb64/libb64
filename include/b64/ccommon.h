@@ -11,4 +11,14 @@ For details, see http://sourceforge.net/projects/libb64
 #define BASE64_VER_MAJOR	2
 #define BASE64_VER_MINOR	0
 
+#ifdef _WIN32
+  #ifdef LIBB64_EXPORTS
+    #define LIBB64 __declspec(dllexport)
+  #else
+    #define LIBB64 __declspec(dllimport)
+  #endif
+#else
+#define LIBB64
+#endif
+
 #endif /* BASE64_CCOMMON_H */

@@ -22,23 +22,23 @@ namespace base64
 		base64_decodestate _state;
 		int _buffersize;
 
-		decoder(int buffersize_in = BUFFERSIZE)
+		LIBB64 decoder(int buffersize_in = BUFFERSIZE)
 		: _buffersize(buffersize_in)
 		{
 			base64_init_decodestate(&_state);
 		}
 
-		int decode(char value_in)
+		LIBB64 int decode(char value_in)
 		{
 			return base64_decode_value(value_in);
 		}
 
-		std::streamsize decode(const char* code_in, const std::streamsize length_in, char* plaintext_out)
+		LIBB64 std::streamsize decode(const char* code_in, const std::streamsize length_in, char* plaintext_out)
 		{
 			return base64_decode_block(code_in, static_cast<int>(length_in), plaintext_out, &_state);
 		}
 
-		void decode(std::istream& istream_in, std::ostream& ostream_in)
+		LIBB64 void decode(std::istream& istream_in, std::ostream& ostream_in)
 		{
 			base64_init_decodestate(&_state);
 			//

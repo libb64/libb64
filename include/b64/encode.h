@@ -22,28 +22,28 @@ namespace base64
 		base64_encodestate _state;
 		int _buffersize;
 
-		encoder(int buffersize_in = BUFFERSIZE)
+		LIBB64 encoder(int buffersize_in = BUFFERSIZE)
 			: _buffersize(buffersize_in)
 		{
 			base64_init_encodestate(&_state);
 		}
 
-		int encode(char value_in)
+		LIBB64 int encode(char value_in)
 		{
 			return base64_encode_value(value_in);
 		}
 
-		std::streamsize encode(const char* code_in, const std::streamsize length_in, char* plaintext_out)
+		LIBB64 std::streamsize encode(const char* code_in, const std::streamsize length_in, char* plaintext_out)
 		{
 			return base64_encode_block(code_in, static_cast<int>(length_in), plaintext_out, &_state);
 		}
 
-		int encode_end(char* plaintext_out)
+		LIBB64 int encode_end(char* plaintext_out)
 		{
 			return base64_encode_blockend(plaintext_out, &_state);
 		}
 
-		void encode(std::istream& istream_in, std::ostream& ostream_in)
+		LIBB64 void encode(std::istream& istream_in, std::ostream& ostream_in)
 		{
 			base64_init_encodestate(&_state);
 			//
